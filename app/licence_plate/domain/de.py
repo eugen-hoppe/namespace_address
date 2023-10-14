@@ -9,7 +9,7 @@ from app.models import Domain
 class LPlateDE(LicencePlate):
     domain: Domain = Domain.DE
     version: int = 2310
-    prefix: tuple[str] = (r"^[A-Z]{1,3}$")
+    prefix: tuple[str] = r"^[A-Z]{1,3}$"
     suffix: tuple[str, str | int, str] = (r"^[A-Z]{1,2}$", r"^\d{1,4}$", r"^E?$")
 
     def load(self, slug: str) -> LicencePlate:
@@ -30,5 +30,9 @@ class LPlateDE(LicencePlate):
         matches = re.match(pattern, suffix_str)
         if matches:
             groups = matches.groups()
-            return [groups[0], str(int(groups[1])), groups[2]] if groups[2] else [groups[0], str(int(groups[1]))]
+            return (
+                [groups[0], str(int(groups[1])), groups[2]]
+                if groups[2]
+                else [groups[0], str(int(groups[1]))]
+            )
         raise ValueError(f"suffix is not valide: {suffix_str}")

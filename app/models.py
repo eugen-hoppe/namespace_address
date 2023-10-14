@@ -52,7 +52,7 @@ class NamespaceAddress:
     def validate_domain(self, domain: str):
         if domain.split()[0] != self.domain.value:
             raise ValueError(ErrorSnippet.DOMAIN + self.domain.value)
-    
+
     def validate_version(self, version):
         if version != str(self.version):
             # TODO: Validate version range
@@ -62,4 +62,4 @@ class NamespaceAddress:
         if not isinstance(slug, str):
             raise TypeError("slug must be a str")
         slug = slug.upper()
-        return slug.split(self.sep.AT)    
+        return slug.split(self.sep.AT)

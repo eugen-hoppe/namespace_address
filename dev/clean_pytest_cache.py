@@ -11,7 +11,6 @@ def remove_pycache(directory):
                 print(f"{pycache_dir} is deleted")
 
 
-
 if __name__ == "__main__":
     remove_pycache("app")
     shutil.rmtree(".pytest_cache")
