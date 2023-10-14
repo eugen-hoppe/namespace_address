@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from models import NamespaceAddress, Subject
+from app.models import NamespaceAddress, Subject
 
 
 @dataclass

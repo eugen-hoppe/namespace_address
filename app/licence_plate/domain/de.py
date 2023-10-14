@@ -1,8 +1,8 @@
 import re
 from dataclasses import dataclass
 
-from licence_plate.models import LicencePlate
-from models import Domain
+from app.licence_plate.models import LicencePlate
+from app.models import Domain
 
 
 @dataclass

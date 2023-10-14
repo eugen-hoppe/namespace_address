@@ -1,6 +1,6 @@
 import pytest
-from licence_plate.domain.de import LPlateDE
-from models import Domain, ErrorSnippet, Separator
+from app.licence_plate.domain.de import LPlateDE
+from app.models import Domain, ErrorSnippet, Separator
 
 # Invalid
 # =======
