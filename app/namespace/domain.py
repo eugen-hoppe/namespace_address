@@ -1,10 +1,7 @@
-from enum import Enum
+from enum import Enum, auto
 
 
-class Domain(str, Enum):
-    DE: str = "DE"
-    CH: str = "CH"
-    AT: str = "AT"
-
-    def __str__(self):
-        return self.value
+class Domain(Enum):
+    DE = auto()
+    CH = auto()
+    AT = auto()

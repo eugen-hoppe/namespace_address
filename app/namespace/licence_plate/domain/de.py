@@ -9,8 +9,8 @@ from app.models import Domain
 class LPlateDE(LicencePlate):
     domain: Domain = Domain.DE
     version: int = 2310
-    prefix: tuple[str] = r"^[A-Z]{1,3}$"
-    suffix: tuple[str, str | int, str] = (r"^[A-Z]{1,2}$", r"^\d{1,4}$", r"^E?$")
+    prefix: tuple[str] = (r"^[A-Z]{1,3}$")  # TODO compile
+    suffix: tuple[str, str | int, str] = (r"^[A-Z]{1,2}$", r"^\d{1,4}$", r"^E?$")  # TODO compile
 
     def load(self, slug: str) -> LicencePlate:
         prefix, suffix_str, domain, version = self.split_slug(slug)
@@ -26,7 +26,7 @@ class LPlateDE(LicencePlate):
         return self
 
     def split_suffix(self, suffix_str: str) -> list[str] | None:
-        pattern = r"([A-Z]+)(\d+)(E?)"
+        pattern = re.compile(r"([A-Z]+)(\d+)(E?)")
         matches = re.match(pattern, suffix_str)
         if matches:
             groups = matches.groups()

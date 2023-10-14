@@ -11,7 +11,7 @@ class LicencePlate(NamespaceAddress):
         if not self.is_valid:
             raise ValueError("Licence Plate is not valide")
         lp_id = "".join(self.prefix) + self.sep.DOT + "".join(self.suffix)
-        namespace = self.domain + self.sep.DOT + self.subject
+        namespace = self.domain.name + self.sep.DOT + self.subject
         if self.tld:
             namespace += self.sep.DOT + self.tld
         namespace += self.sep.TAG + str(self.version)
@@ -24,7 +24,7 @@ class LicencePlate(NamespaceAddress):
         return prefix, suffix, domain, version
 
     def namespace(self) -> str:
-        namespace = self.domain + self.sep.DOT + self.subject
+        namespace = self.domain.name + self.sep.DOT + self.subject
         if self.tld:
             namespace += self.sep.DOT + self.tld
         namespace += self.sep.TAG + str(self.version)

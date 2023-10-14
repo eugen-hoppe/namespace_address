@@ -23,7 +23,7 @@ def test_invalid_domain():
     lp = LPlateDE()
     with pytest.raises(ValueError) as excinfo:
         lp.load(INVALID_DOMAIN)
-    assert str(excinfo.value) == ErrorSnippet.DOMAIN + Domain.DE.value
+    assert str(excinfo.value) == ErrorSnippet.DOMAIN + Domain.DE.name
 
 
 def test_invalid_version():

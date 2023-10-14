@@ -16,8 +16,8 @@ class NamespaceAddress:
 
     def validate_domain(self, domain: str):
         domain_path = domain.split(".")
-        if domain_path[0] != self.domain:
-            raise ValueError(ErrorSnippet.DOMAIN + self.domain.value)
+        if domain_path[0] != self.domain.name:
+            raise ValueError(ErrorSnippet.DOMAIN + self.domain.name)
         tld: str | None = None
         for level, name in enumerate(domain_path):
             if level == 1:
@@ -33,9 +33,6 @@ class NamespaceAddress:
         if tld:
             if tld.removesuffix(".").lower() != self.tld:
                 raise ValueError("Namespace Provider Error")
-    
-
-
 
     def validate_version(self, version):
         if version != str(self.version):
