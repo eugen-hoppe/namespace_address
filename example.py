@@ -15,4 +15,3 @@ debug(licence_plate.slug())
 # *optional
 
 debug(licence_plate)
-
