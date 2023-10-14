@@ -1,4 +1,4 @@
-from app.licence_plate.domain.de import LPlateDE
+from app.namespace.licence_plate.domain.de import LPlateDE
 
 INPUT = "B.CD1234@DE:2310"
 licence_plate = LPlateDE(tld="ehoppe.com")

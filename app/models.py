@@ -1,25 +1,10 @@
 from dataclasses import dataclass, field
 from enum import Enum
+from app.namespace.domain import Domain
+from app.options.errors import ErrorSnippet
 
 
 TLD = None
-
-
-class ErrorSnippet(str, Enum):
-    DOMAIN: str = "Slug is not valid for domain: "
-    VERSION: str = "Slug is not valid for version: "
-
-    def __str__(self):
-        return self.value
-
-
-class Domain(str, Enum):
-    DE: str = "DE"
-    CH: str = "CH"
-    AT: str = "AT"
-
-    def __str__(self):
-        return self.value
 
 
 class Separator(str, Enum):

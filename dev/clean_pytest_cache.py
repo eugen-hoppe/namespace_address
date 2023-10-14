@@ -2,6 +2,10 @@ import os
 import shutil
 
 
+PYTEST_CACHE = ".pytest_cache"
+APP_PATH = "app"
+
+
 def remove_pycache(directory):
     for root, dirs, _ in os.walk(directory):
         for dir in dirs:
@@ -12,5 +16,6 @@ def remove_pycache(directory):
 
 
 if __name__ == "__main__":
-    remove_pycache("app")
-    shutil.rmtree(".pytest_cache")
+    remove_pycache(APP_PATH)
+    if os.path.exists(PYTEST_CACHE):
+        shutil.rmtree(PYTEST_CACHE)

@@ -1,5 +1,5 @@
 import pytest
-from app.licence_plate.domain.de import LPlateDE
+from app.namespace.licence_plate.domain.de import LPlateDE
 from app.models import Domain, ErrorSnippet, Separator
 
 # Invalid
