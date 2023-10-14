@@ -15,8 +15,27 @@ class NamespaceAddress:
     sep: Separator = Separator
 
     def validate_domain(self, domain: str):
-        if domain.split()[0] != self.domain.value:
+        domain_path = domain.split(".")
+        if domain_path[0] != self.domain:
             raise ValueError(ErrorSnippet.DOMAIN + self.domain.value)
+        tld: str | None = None
+        for level, name in enumerate(domain_path):
+            if level == 1:
+                subject = name.lower()
+                if not subject in Subject.__members__.values():
+                    raise ValueError("Namespace Error")
+                if subject != self.subject:
+                    raise ValueError("Subject Error")
+            if level > 1:
+                if level == 2:
+                    tld = ""
+                tld += name + "."
+        if tld:
+            if tld.removesuffix(".").lower() != self.tld:
+                raise ValueError("Namespace Provider Error")
+    
+
+
 
     def validate_version(self, version):
         if version != str(self.version):
