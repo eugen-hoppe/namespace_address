@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-TLD = None
+TLD = "ehoppe.com"
 
 
 class Separator(str, Enum):

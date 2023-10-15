@@ -1,17 +1,30 @@
-from app.namespace.licence_plate.domain.de import LPlateDE
+from app.namespace.licence_plate.domain.de import LPlateDEv2310 as LPlateDE
 from devtools import debug
 
-INPUT = "EHX.CD1419E@DE.licence-plate:2310"
-licence_plate = LPlateDE(tld="ehoppe.com")
-licence_plate.load(INPUT)
 
-debug(licence_plate.slug())
-# ehx.cd1419e@de.licence-plate.ehoppe.com:2310
-# |_________||__||___________| |________||____|
-#      |      |        |           |        |
-#      |    domain     | namespce_provider* |
-# licence_plate   subject*               version*
+lp_de = LPlateDE().load("eh.cd2211e@de")
+
+
+debug(lp_de.slug())  # ->
+# ehx.cd1419e @ de . licence-plate . ehoppe.com : 2310
+# |__________| |__| |_____________| |__________| |____|
+#      |        |          |             |         |
+#      |      domain       |   namespace_provider* |
+# licence_plate        subject*                version*
 #
 # *optional
 
-debug(licence_plate)
+
+debug(lp_de)  # ->
+# LPlateDEv2310(
+#     version=2310,
+#     domain=<Domain.DE: 1>,
+#     subject='licence-plate',
+#     prefix='EH',
+#     tld='ehoppe.com',
+#     is_valid=True,
+#     sep=<enum 'Separator'>,
+#     suffix=['CD', '1419', 'E',],
+# )
+
+debug(lp_de.licence_plate())  # -> EH-CD1419E

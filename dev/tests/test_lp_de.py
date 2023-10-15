@@ -1,5 +1,5 @@
 import pytest
-from app.namespace.licence_plate.domain.de import LPlateDE
+from app.namespace.licence_plate.domain.de import LPlateDEv2310 as LPlateDE
 from app.models import Domain, ErrorSnippet, Separator
 
 # Invalid
@@ -23,7 +23,7 @@ def test_invalid_domain():
     lp = LPlateDE()
     with pytest.raises(ValueError) as excinfo:
         lp.load(INVALID_DOMAIN)
-    assert str(excinfo.value) == ErrorSnippet.DOMAIN + Domain.DE.name
+    assert str(excinfo.value) == ErrorSnippet.DOMAIN + Domain.DE.name.lower()
 
 
 def test_invalid_version():
