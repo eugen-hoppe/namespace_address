@@ -1,9 +1,6 @@
 from enum import Enum
 
 
-TLD = "ehoppe.com"
-
-
 class Separator(str, Enum):
     TAG: str = ":"
     AT: str = "@"

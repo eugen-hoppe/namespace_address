@@ -1,8 +1,9 @@
 from re import Pattern
 from dataclasses import dataclass, field
 from app.namespace.domain import Domain
-from app.options.errors import ErrorSnippet
-from app.options.settings import Separator, Subject, TLD
+from app.settings.errors import ErrorSnippet
+from app.settings.options import TLD
+from app.settings.constants import Separator, Subject
 
 
 @dataclass
